@@ -1,8 +1,9 @@
+FROM java:8-jdk-alpine
 
-FROM  alpine/java:11-jdk
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
 
+COPY target/myapp.jar /app/
+
+CMD ["java", "-jar", "myapp.jar"]
 
 
